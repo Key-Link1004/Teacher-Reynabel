@@ -4,17 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Mission: Thank You!</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap">
+  <title>Happy Teachers' Day! Ma'am Reynabel </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap">
   <style>
     :root {
-      --sky1: #0d0b2e;
-      --sky2: #2b1a5e;
-      --ink: #fff7e0;
-      --gold: #ffd54a;
-      --pink: #ff7eb6;
-      --cyan: #5ee7ff;
-      --panel: #1a1648;
+      --bg: #fff8e6;
+      --line: #cfe3f5;
+      --margin: #ff9aa2;
+      --ink: #2d2a4a;
+      --card: #ffffff;
+      --red: #ff6b6b;
+      --yel: #ffd93d;
+      --grn: #6bcb77;
+      --blu: #4d96ff;
       box-sizing: border-box;
       padding-top: env(safe-area-inset-top, 0px);
       padding-bottom: env(safe-area-inset-bottom, 0px)
@@ -22,12 +24,20 @@
 
     @media (prefers-color-scheme:dark) {
       :root:not([data-theme="light"]) {
-        --sky1: #0d0b2e
+        --bg: #1d2340;
+        --line: #2c3566;
+        --margin: #c9677a;
+        --ink: #fff6dc;
+        --card: #2a3260
       }
     }
 
     :root[data-theme="dark"] {
-      --sky1: #0d0b2e
+      --bg: #1d2340;
+      --line: #2c3566;
+      --margin: #c9677a;
+      --ink: #fff6dc;
+      --card: #2a3260
     }
 
     html {
@@ -42,412 +52,453 @@
     body {
       margin: 0;
       min-height: 100%;
-      font-family: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+      font-family: "Fredoka", "Trebuchet MS", "Comic Sans MS", system-ui, sans-serif;
       color: var(--ink);
-      background: linear-gradient(180deg, var(--sky1), var(--sky2));
+      background-color: var(--bg);
+      background-image: radial-gradient(ellipse at 12% 8%, rgba(255, 217, 61, .2), transparent 38%), radial-gradient(ellipse at 92% 28%, rgba(77, 150, 255, .13), transparent 35%);
+      background-attachment: fixed;
       overflow-x: hidden
     }
 
-    #stars,
     #fx {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      overflow: hidden
+      overflow: hidden;
+      z-index: 5
     }
 
-    #stars i {
+    #fx i {
       position: absolute;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: #fff;
-      animation: tw 3s ease-in-out infinite
-    }
-
-    @keyframes tw {
-      50% {
-        opacity: .2
-      }
-    }
-
-    #fx {
-      z-index: 20
-    }
-
-    #fx b {
-      position: absolute;
-      font-weight: 400;
+      top: -30px;
       animation: fall linear forwards
     }
 
     @keyframes fall {
       to {
-        transform: translateY(112vh) rotate(360deg)
+        transform: translateY(110vh) rotate(540deg)
       }
     }
 
     main {
-      position: relative;
-      max-width: 480px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 22px 18px 120px;
-      min-height: 100vh
+      padding: 26px 20px 32px;
+      min-height: calc(100svh - 82px)
+    }
+
+    .screen {
+      display: none
+    }
+
+    .screen.on {
+      display: block;
+      animation: screen-in .35s ease both
+    }
+
+    @keyframes screen-in {
+      from { opacity: 0; transform: translateY(8px) }
+      to { opacity: 1; transform: translateY(0) }
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      margin: 3vh 0 22px;
+      padding: 28px 22px 24px;
+      border: 1px solid rgba(45, 42, 74, .1);
+      border-radius: 28px;
+      background: linear-gradient(135deg, #fff 0%, #fff1cf 100%);
+      color: #2d2a4a;
+      text-align: center;
+      box-shadow: 0 16px 38px rgba(45, 42, 74, .12)
+    }
+
+    .hero:after {
+      content: "✦";
+      position: absolute;
+      top: 8px;
+      right: 18px;
+      color: #f3bd35;
+      font-size: 32px;
+      opacity: .7
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #665d81;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase
+    }
+
+    .hero h1 { margin: 0 0 14px }
+
+    .subject-badge {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 0 12px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: #2d2a4a;
+      color: #fff6dc;
+      font-size: 16px;
+      font-weight: 700
     }
 
     h1 {
-      font-size: clamp(34px, 10vw, 48px);
-      line-height: 1;
-      margin: 2vh 0 6px;
-      font-weight: 800;
-      color: var(--gold)
+      font-size: clamp(38px, 11vw, 54px);
+      line-height: 1.05;
+      margin: 4vh 0 10px;
+      font-weight: 700
     }
 
-    .sub {
-      margin: 0;
-      font-size: 18px
-    }
-
-    .prog {
+    h1 span {
       display: inline-block;
-      margin-top: 12px;
-      padding: 4px 14px;
-      border-radius: 99px;
-      background: rgba(255, 255, 255, .12);
-      font-size: 16px
+      animation: bob 2.4s ease-in-out infinite
     }
 
-    .map {
-      position: relative;
-      height: 430px;
-      margin-top: 10px
+    h1 span:nth-child(2n) {
+      animation-delay: .3s
     }
 
-    .pl {
-      position: absolute;
-      border: 0;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font: inherit;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: inset -14px -12px 0 rgba(0, 0, 0, .22), 0 0 40px rgba(255, 255, 255, .12);
-      animation: fl 5s ease-in-out infinite
-    }
-
-    .pl span {
-      font-size: 46px;
-      line-height: 1
-    }
-
-    .pl small {
-      font-size: 17px
-    }
-
-    .pl:active {
-      transform: scale(.94)
-    }
-
-    .pl.done::after {
-      content: "✔";
-      position: absolute;
-      top: 2px;
-      right: 6px;
-      font-size: 24px;
-      background: var(--gold);
-      color: #3a2600;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      line-height: 34px;
-      text-align: center
-    }
-
-    @keyframes fl {
+    @keyframes bob {
       50% {
-        transform: translateY(-12px)
+        transform: translateY(-6px) rotate(-3deg)
       }
     }
 
-    .p1 {
-      width: 150px;
-      height: 150px;
-      left: 0;
-      top: 10px;
-      background: radial-gradient(circle at 35% 30%, #ffb86b, #e8602c)
+    h2 {
+      font-size: 34px;
+      margin: 6px 0 6px;
+      font-weight: 700
     }
 
-    .p2 {
-      width: 132px;
-      height: 132px;
-      right: 0;
-      top: 140px;
-      background: radial-gradient(circle at 35% 30%, #ff9fd2, #a63ec0);
-      animation-delay: -1.5s
+    .sub {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 0 0 22px
     }
 
-    .p3 {
-      width: 146px;
-      height: 146px;
-      left: 30px;
-      top: 278px;
-      background: radial-gradient(circle at 35% 30%, #8ef0ff, #2c7be0);
-      animation-delay: -3s
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 14px
     }
 
-    .ring {
-      position: absolute;
-      left: -12px;
-      right: -12px;
-      top: 55%;
-      height: 26px;
-      border: 4px solid rgba(255, 255, 255, .35);
-      border-radius: 50%;
-      transform: rotate(-14deg);
-      pointer-events: none
-    }
-
-    .launch {
-      display: none;
-      position: fixed;
-      left: 18px;
-      right: 18px;
-      bottom: calc(18px + env(safe-area-inset-bottom, 0px));
-      max-width: 444px;
-      margin: auto;
-      padding: 14px;
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 14px 16px;
       border: 0;
-      border-radius: 99px;
-      background: var(--gold);
-      color: #3a2600;
-      font: 800 24px "Baloo 2", sans-serif;
-      box-shadow: 0 6px 0 #b58900;
+      border-radius: 20px;
+      font: inherit;
+      font-size: 20px;
+      font-weight: 700;
+      color: #2d2a4a;
       cursor: pointer;
-      z-index: 5;
-      animation: pulse 1.4s ease-in-out infinite
+      text-align: left;
+      box-shadow: 0 6px 0 rgba(0, 0, 0, .18);
+      transition: transform .1s, box-shadow .1s;
+      position: relative
     }
 
-    .launch.show {
-      display: block
+    .btn:active {
+      transform: translateY(5px);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, .18)
     }
 
-    @keyframes pulse {
-      50% {
-        transform: scale(1.04)
+    .btn .e {
+      font-size: 40px
+    }
+
+    .btn .t {
+      margin-left: auto;
+      font-size: 28px;
+      opacity: 0
+    }
+
+    .btn.done .t {
+      opacity: 1
+    }
+
+    .b1 {
+      background: var(--yel)
+    }
+
+    .b2 {
+      background: var(--grn)
+    }
+
+    .b3 {
+      background: var(--blu);
+      color: #fff
+    }
+
+    .last {
+      display: none;
+      background: var(--red);
+      color: #fff;
+      margin-top: 20px;
+      animation: wig 1.4s ease-in-out infinite
+    }
+
+    .last.show {
+      display: flex
+    }
+
+    @keyframes wig {
+      20% {
+        transform: rotate(-2deg)
+      }
+
+      40% {
+        transform: rotate(2deg)
+      }
+
+      60% {
+        transform: rotate(0)
       }
     }
 
     :focus-visible {
-      outline: 4px solid var(--cyan);
+      outline: 4px solid var(--blu);
       outline-offset: 3px
     }
 
-    /* sheet */
-    .veil {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .5);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .3s;
-      z-index: 10
-    }
-
-    .veil.on {
-      opacity: 1;
-      pointer-events: auto
-    }
-
-    .sheet {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      max-width: 480px;
-      margin: auto;
-      background: var(--panel);
-      border: 3px solid var(--cyan);
-      border-bottom: 0;
-      border-radius: 28px 28px 0 0;
-      padding: 18px 18px calc(22px + env(safe-area-inset-bottom, 0px));
-      max-height: 82vh;
-      overflow-y: auto;
-      transform: translateY(105%);
-      transition: transform .35s cubic-bezier(.2, 1, .3, 1);
-      z-index: 11
-    }
-
-    .sheet.on {
-      transform: none
-    }
-
-    .sheet h2 {
-      margin: 0 0 8px;
-      font-size: 30px;
-      color: var(--gold)
-    }
-
-    .x {
-      position: absolute;
-      top: 10px;
-      right: 14px;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+    .back {
       border: 0;
-      background: rgba(255, 255, 255, .15);
-      color: #fff;
-      font-size: 22px;
-      cursor: pointer
-    }
-
-    .say {
-      background: #fff7e0;
-      color: #2b1a5e;
-      border-radius: 18px;
-      padding: 14px 16px;
-      font-size: 22px;
-      line-height: 1.3;
-      margin: 10px 0;
-      min-height: 70px
-    }
-
-    .say b {
-      display: block;
-      font-size: 24px
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px
-    }
-
-    .g {
-      aspect-ratio: 1;
-      font-size: 36px;
-      border-radius: 18px;
-      border: 3px dashed var(--cyan);
-      background: rgba(255, 255, 255, .08);
-      cursor: pointer
-    }
-
-    .g.seen {
-      border-style: solid;
-      border-color: var(--gold);
-      background: rgba(255, 213, 74, .18)
-    }
-
-    .big {
-      display: block;
-      width: 100%;
-      padding: 13px;
-      border: 0;
-      border-radius: 99px;
-      background: var(--pink);
-      color: #33062a;
-      font: 800 21px "Baloo 2", sans-serif;
-      box-shadow: 0 5px 0 #b3487f;
+      background: none;
+      font: inherit;
+      font-size: 18px;
+      color: inherit;
+      padding: 6px 0;
       cursor: pointer;
-      margin-top: 8px
+      opacity: .8
     }
 
-    .big:active {
+    /* gifts */
+    .box {
+      display: block;
+      margin: 18px auto;
+      font-size: 120px;
+      line-height: 1;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      animation: wob 1.6s ease-in-out infinite
+    }
+
+    @keyframes wob {
+      25% {
+        transform: rotate(-6deg)
+      }
+
+      75% {
+        transform: rotate(6deg)
+      }
+    }
+
+    .tiles {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 10px 0
+    }
+
+    .tiles.on {
+      display: grid
+    }
+
+    .tile {
+      aspect-ratio: 1;
+      font-size: 46px;
+      border: 3px dashed var(--ink);
+      border-radius: 22px;
+      background: var(--card);
+      cursor: pointer;
+      animation: pop .45s backwards
+    }
+
+    .tile.seen {
+      border-style: solid;
+      border-color: var(--grn);
+      background: #e9fbe9
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0)
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 3px solid var(--ink);
+      border-radius: 22px;
+      padding: 18px;
+      font-size: 22px;
+      line-height: 1.35;
+      box-shadow: 6px 6px 0 var(--ink);
+      transform: rotate(-1deg);
+      min-height: 100px
+    }
+
+    .card b {
+      display: block;
+      font-size: 26px;
+      margin-bottom: 4px
+    }
+
+    .count {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 17px
+    }
+
+    /* letter */
+    .letter p {
+      margin: 0 0 10px;
+      font-size: 26px;
+      line-height: 1.4;
+      background: var(--card);
+      border: 3px solid var(--ink);
+      border-radius: 20px;
+      padding: 10px 16px;
+      width: fit-content;
+      max-width: 100%;
+      animation: pop .35s backwards
+    }
+
+    .letter p:nth-child(2n) {
+      background: #fff3b8;
+      color: #2d2a4a;
+      margin-left: auto
+    }
+
+    .nx {
+      margin-top: 14px
+    }
+
+    .go {
+      display: block;
+      margin: 20px auto 0;
+      padding: 14px 28px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font: 700 20px "Fredoka", sans-serif;
+      box-shadow: 0 5px 0 rgba(0, 0, 0, .2);
+      cursor: pointer
+    }
+
+    .go:active {
       transform: translateY(4px);
       box-shadow: none
     }
 
-    .cap {
-      margin: 8px 0 0;
-      text-align: center;
-      font-size: 16px;
-      opacity: .85
+    /* report card */
+    .rc {
+      display: grid;
+      gap: 10px;
+      margin-top: 6px
     }
 
-    .log p {
-      margin: 0 0 8px;
-      padding: 10px 14px;
-      border-radius: 16px 16px 16px 4px;
-      background: rgba(255, 255, 255, .12);
-      font-size: 21px;
-      line-height: 1.3;
-      animation: in .3s both
-    }
-
-    @keyframes in {
-      from {
-        opacity: 0;
-        transform: translateY(8px)
-      }
-    }
-
-    /* finish */
-    .end {
-      position: fixed;
-      inset: 0;
-      z-index: 30;
-      background: linear-gradient(180deg, var(--sky1), var(--sky2));
-      display: none;
+    .row {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--card);
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      font: inherit;
+      font-size: 20px;
+      color: inherit;
+      cursor: pointer;
+      text-align: left
+    }
+
+    .stamp {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--red);
+      border: 4px solid var(--red);
+      border-radius: 10px;
+      padding: 0 10px;
+      transform: rotate(-8deg) scale(0);
+      transition: transform .3s cubic-bezier(.3, 1.8, .6, 1);
+      min-width: 64px;
       text-align: center
     }
 
-    .end.on {
-      display: flex
+    .row.on .stamp {
+      transform: rotate(-8deg) scale(1)
     }
 
-    .badge {
-      max-width: 420px;
-      background: #fff7e0;
-      color: #2b1a5e;
+    /* finale */
+    .cert {
+      text-align: center;
+      background: #fffdf3;
+      color: #2d2a4a;
       border: 6px double #e0a800;
-      border-radius: 26px;
-      padding: 26px 18px;
-      box-shadow: 0 0 60px rgba(255, 213, 74, .4)
+      border-radius: 18px;
+      padding: 26px 16px;
+      box-shadow: 0 10px 0 rgba(0, 0, 0, .15);
+      margin-top: 3vh;
+      transform: rotate(-1deg)
     }
 
-    .badge .r {
-      font-size: 70px;
+    .cert .m {
+      font-size: 76px;
       line-height: 1;
-      animation: up 2.2s ease-out both
+      animation: bob 2s ease-in-out infinite
     }
 
-    @keyframes up {
-      from {
-        transform: translateY(70vh) rotate(0)
-      }
-
-      to {
-        transform: none
-      }
-    }
-
-    .badge h2 {
-      font-size: 34px;
+    .cert h1 {
       margin: 8px 0;
-      line-height: 1.05
+      font-size: clamp(30px, 9vw, 42px)
     }
 
-    .badge p {
+    .cert .nm {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--red);
+      margin: 6px 0
+    }
+
+    .cert p {
       margin: 6px 0;
-      font-size: 20px
+      font-size: 19px
     }
 
-    .badge button {
-      margin-top: 10px;
-      border: 0;
-      border-radius: 99px;
-      background: #5b3fd1;
-      color: #fff;
-      padding: 10px 22px;
-      font: 700 18px "Baloo 2", sans-serif;
-      cursor: pointer
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 5px 12px;
+      min-height: 62px;
+      padding: 12px 20px;
+      border-top: 1px solid rgba(45, 42, 74, .12);
+      color: var(--ink);
+      font-size: 14px;
+      text-align: center
+    }
+
+    .site-footer p { margin: 0 }
+
+    .site-footer a {
+      color: var(--blu);
+      font-weight: 700;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px
     }
 
     @media (prefers-reduced-motion:reduce) {
@@ -455,102 +506,179 @@
         animation: none !important;
         transition: none !important
       }
+
+      .stamp {
+        transition: none
+      }
     }
   </style>
 </head>
 
 <body>
-  <div id="stars" aria-hidden="true"></div>
   <div id="fx" aria-hidden="true"></div>
   <main>
-    <h1 id="title"></h1>
-    <p class="sub">Your students sent you on a secret mission. Visit all 3 planets!</p>
-    <span class="prog" id="prog">Planets visited: 0 / 3</span>
-    <div class="map">
-      <div class="ring"></div>
-      <button class="pl p1" data-p="gifts"><span>🎁</span><small>Gift Planet</small></button>
-      <button class="pl p2" data-p="msg"><span>💌</span><small>Message Moon</small></button>
-      <button class="pl p3" data-p="wish"><span>🌠</span><small>Wish Star</small></button>
-    </div>
+
+    <section id="home" class="screen on">
+      <div class="hero">
+        <p class="eyebrow">A little thank-you from your student</p>
+        <h1 id="title"></h1>
+        <p class="subject-badge" id="subjectBadge"></p>
+        <p class="sub" id="welcome"></p>
+      </div>
+      <div class="menu">
+        <button class="btn b1" data-go="gifts"><span class="e">🎁</span>Gifts<span class="t">✅</span></button>
+        <button class="btn b2" data-go="letter"><span class="e">💌</span>My message<span class="t">✅</span></button>
+        <button class="btn b3" data-go="report"><span class="e">📝</span>Your report card<span
+            class="t">✅</span></button>
+      </div>
+      <button class="btn last" id="lastBtn" data-go="finale"><span class="e">🏆</span>Open your prize!</button>
+    </section>
+
+    <section id="gifts" class="screen">
+      <button class="back" data-go="home">← back</button>
+      <h2>Pick a gift!</h2>
+      <p class="sub" id="giftSub">Tap the box to open it.</p>
+      <button class="box" id="box" aria-label="Open the gift box">🎁</button>
+      <div class="tiles" id="tiles"></div>
+      <div class="card" id="giftCard" hidden></div>
+      <div class="count" id="giftCount"></div>
+    </section>
+
+    <section id="letter" class="screen">
+      <button class="back" data-go="home">← back</button>
+      <h2 id="dear"></h2>
+      <div class="letter" id="lt"></div>
+      <button class="go nx" id="nextMsg">Next ➜</button>
+    </section>
+
+    <section id="report" class="screen">
+      <button class="back" data-go="home">← back</button>
+      <h2>Teacher's report card</h2>
+      <p class="sub">Tap each one to give a grade!</p>
+      <div class="rc" id="rc"></div>
+      <div class="count" id="rcCount"></div>
+    </section>
+
+    <section id="finale" class="screen">
+      <div class="cert">
+        <div class="m">🏅</div>
+        <h1>World's Best Teacher</h1>
+        <p>This award goes to</p>
+        <div class="nm" id="certName"></div>
+        <p id="awardReason"></p>
+        <p>Thank you for teaching me! 💛</p>
+        <p><b id="certFrom"></b></p>
+      </div>
+      <button class="go" id="again">🎉 More confetti!</button>
+      <button class="go" data-go="home" style="background:var(--blu)">Go back</button>
+    </section>
+
   </main>
-  <button class="launch" id="launch">🚀 Launch the rocket!</button>
-  <div class="veil" id="veil"></div>
-  <div class="sheet" id="sheet" role="dialog" aria-modal="true"><button class="x" id="close"
-      aria-label="Close">✕</button>
-    <div id="sc"></div>
-  </div>
-  <div class="end" id="end">
-    <div class="badge">
-      <div class="r">🚀</div>
-      <h2>Mission complete!</h2>
-      <p>Our teacher</p>
-      <p style="font-size:32px;font-weight:800;color:#c2185b" id="eName"></p>
-      <p>is the brightest star in our whole galaxy. Thank you for everything. 💛</p>
-      <p><b id="eFrom"></b></p><button id="back">Back to space</button>
-    </div>
-  </div>
+  <footer class="site-footer">
+    <p>Made with love by Esme 💛</p>
+    <a href="#" aria-label="Facebook page link placeholder">Facebook page link (add later)</a>
+  </footer>
   <script>
     (function () {
       var q = new URLSearchParams(location.search);
-      var TO = (q.get("to") || "Teacher").slice(0, 40);   // ?to=Ma'am Santos&from=Mia
-      var FROM = (q.get("from") || "Your student").slice(0, 40);
+      var TO = (q.get("to") || "Ma'am Reynabel").slice(0, 40);       // use ?to=Ma'am Santos&from=Mia
+      var FROM = (q.get("from") || "Esme").slice(0, 40);
+      var SUBJECT = "SCIENCE";
       var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
       var $ = function (s) { return document.querySelector(s) };
-      var done = { gifts: 0, msg: 0, wish: 0 };
-      $("#title").textContent = "Mission: Thank You, " + TO + "!";
-      $("#eName").textContent = TO; $("#eFrom").textContent = "— " + FROM;
-      for (var i = 0; i < 45; i++) { var s = document.createElement("i"); s.style.left = Math.random() * 100 + "%"; s.style.top = Math.random() * 100 + "%"; s.style.animationDelay = Math.random() * 3 + "s"; s.style.opacity = .4 + Math.random() * .6; $("#stars").appendChild(s) }
-      function rain(list, n) { if (reduce) return; for (var i = 0; i < n; i++) { var b = document.createElement("b"); b.textContent = list[i % list.length]; b.style.left = Math.random() * 100 + "%"; b.style.top = "-40px"; b.style.fontSize = (18 + Math.random() * 16) + "px"; b.style.animationDuration = (2.5 + Math.random() * 2.5) + "s"; b.style.animationDelay = Math.random() * .8 + "s"; $("#fx").appendChild(b); setTimeout(function (e) { e.remove() }, 6500, b) } }
-      function open(html, init) { $("#sc").innerHTML = html; $("#sheet").classList.add("on"); $("#veil").classList.add("on"); init() }
-      function shut() { $("#sheet").classList.remove("on"); $("#veil").classList.remove("on"); refresh() }
-      function refresh() {
-        var n = 0;["gifts", "msg", "wish"].forEach(function (k) { var b = $('[data-p="' + k + '"]'); b.classList.toggle("done", !!done[k]); if (done[k]) n++ });
-        $("#prog").textContent = "Planets visited: " + n + " / 3";
-        $("#launch").classList.toggle("show", n === 3);
-      }
-      $("#close").onclick = shut; $("#veil").onclick = shut;
-      document.addEventListener("keydown", function (e) { if (e.key === "Escape") shut() });
-      document.querySelector(".map").addEventListener("click", function (e) { var b = e.target.closest("[data-p]"); if (!b) return; ({ gifts: gifts, msg: msg, wish: wish })[b.dataset.p]() });
+      var done = { gifts: false, letter: false, report: false };
 
-      /* Gift Planet */
-      function gifts() {
-        var G = [["🌟", "A shiny star", "For lighting up our classroom every single day."], ["🚀", "A rocket", "For launching our big ideas way up high."], ["🪐", "A planet", "For showing us there is a whole world to learn."], ["🌙", "A moon", "For waiting patiently while we figured it out."]];
-        var seen = {};
-        open('<h2>Gift Planet</h2><div class="row" id="gr"></div><div class="say" id="gs">Tap a gift to open it!</div><div class="cap" id="gc"></div>', function () {
-          G.forEach(function (g, i) {
-            var b = document.createElement("button"); b.className = "g"; b.textContent = "🎁"; b.setAttribute("aria-label", "Gift " + (i + 1));
-            b.onclick = function () {
-              b.textContent = g[0]; b.classList.add("seen"); seen[i] = 1; $("#gs").innerHTML = "<b></b><span></span>"; $("#gs").firstChild.textContent = g[0] + " " + g[1]; $("#gs").lastChild.textContent = g[2];
-              var n = Object.keys(seen).length; $("#gc").textContent = n + " of 4 opened"; if (n === 4) { done.gifts = 1; rain(["⭐", "✨"], 25) }
-            };
-            $("#gr").appendChild(b)
+      $("#title").innerHTML = ("Happy Teachers' Day, " + TO + "!").split(" ").map(function (w) { return "<span>" + w + "</span>" }).join(" ");
+      $("#subjectBadge").textContent = "🔬 " + SUBJECT;
+      $("#welcome").textContent = "Thank you for turning questions and experiments into exciting discoveries!";
+      $("#dear").textContent = "Dear " + TO + ",";
+      $("#certName").textContent = TO;
+      $("#certFrom").textContent = "From: " + FROM;
+      $("#awardReason").textContent = "for making every discovery worth celebrating.";
+
+      function confetti(n) {
+        if (reduce) return; var f = $("#fx"), c = ["#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff", "#ff9aa2"], e = ["⭐", "🎈", "💛", "✨"];
+        for (var i = 0; i < n; i++) {
+          var s = document.createElement("i");
+          if (i % 3 === 0) { s.textContent = e[i % e.length]; s.style.fontSize = "22px" } else { s.style.width = "10px"; s.style.height = "14px"; s.style.background = c[i % c.length]; s.style.borderRadius = "2px" }
+          s.style.left = Math.random() * 100 + "%"; s.style.animationDuration = (2.5 + Math.random() * 2.5) + "s"; s.style.animationDelay = (Math.random() * .8) + "s";
+          f.appendChild(s); setTimeout(function (el) { el.remove() }, 6500, s)
+        }
+      }
+      function show(id) {
+        document.querySelectorAll(".screen").forEach(function (s) { s.classList.toggle("on", s.id === id) });
+        scrollTo(0, 0);
+        if (id === "letter") startLetter();
+        if (id === "finale") confetti(60);
+        if (id === "home") refresh();
+      }
+      function refresh() {
+        document.querySelectorAll(".btn[data-go]").forEach(function (b) { b.classList.toggle("done", !!done[b.dataset.go]) });
+        var all = done.gifts && done.letter && done.report;
+        $("#lastBtn").classList.toggle("show", all);
+        if (all && !refresh.p) { refresh.p = 1; confetti(30) }
+      }
+      document.addEventListener("click", function (e) { var b = e.target.closest("[data-go]"); if (b) show(b.dataset.go) });
+      $("#again").addEventListener("click", function () { confetti(70) });
+
+      /* gifts */
+      var gifts = [
+        ["🍎", "An apple", "Thank you for helping my curiosity grow."],
+        ["⭐", "A gold star", "You make every Science discovery shine."],
+        ["🌻", "A flower", "Thank you for helping me explore and learn about the world."],
+        ["✏️", "A pencil", "You encourage me to ask questions and think like a scientist."],
+        ["💖", "A big heart", "Thank you for patiently guiding every experiment."],
+        ["🍪", "A cookie", "A sweet thank-you for making Science exciting!"]
+      ];
+      var seen = {};
+      $("#box").addEventListener("click", function () {
+        var b = this; confetti(20); b.style.display = "none";
+        var t = $("#tiles"); t.classList.add("on"); t.innerHTML = ""; $("#giftSub").textContent = "Tap each present to open it!";
+        gifts.forEach(function (g, i) {
+          var el = document.createElement("button"); el.className = "tile"; el.textContent = "🎁"; el.setAttribute("aria-label", "Gift " + (i + 1));
+          el.style.animationDelay = (i * .08) + "s";
+          el.addEventListener("click", function () {
+            el.textContent = g[0]; el.classList.add("seen"); seen[i] = 1;
+            var c = $("#giftCard"); c.hidden = false; c.innerHTML = "<b></b><span></span>"; c.firstChild.textContent = g[0] + " " + g[1]; c.lastChild.textContent = g[2];
+            var n = Object.keys(seen).length;
+            $("#giftCount").textContent = n + " of " + gifts.length + " opened";
+            if (n === gifts.length) { done.gifts = true; confetti(30); $("#giftCount").textContent = "You opened them all! 🎉 Go back for more." }
           });
+          t.appendChild(el);
         });
+      });
+
+      /* letter */
+      var msgs = [
+        "Thank you, " + TO + "!",
+        "You make Science full of fascinating questions and discoveries.",
+        "You encourage me to observe, explore, and think for myself.",
+        "Your lessons make the world around us more interesting.",
+        "Thank you for helping me learn from every experiment.",
+        "You make curiosity feel like the start of an adventure.",
+        "Happy Teachers' Day! — " + FROM
+      ];
+      var mi = 0;
+      function startLetter() { mi = 0; $("#lt").innerHTML = ""; var b = $("#nextMsg"); b.style.display = "block"; b.textContent = "Next ➜"; addMsg() }
+      function addMsg() {
+        var p = document.createElement("p"); p.textContent = msgs[mi++]; $("#lt").appendChild(p);
+        if (mi >= msgs.length) { $("#nextMsg").style.display = "none"; done.letter = true; confetti(25) }
       }
-      /* Message Moon */
-      function msg() {
-        var M = ["Hello " + TO + ", this message came from the moon! 🌙", "You never get tired of our million questions.", "You make hard lessons feel like little adventures.", "When I feel lost, you are my map.", "Thank you for being our captain!", "Happy Teachers' Day! — " + FROM + " 💛"];
-        var i = 0;
-        open('<h2>Message Moon</h2><div class="log" id="lg"></div><button class="big" id="nx">Next message ➜</button>', function () {
-          function add() { var p = document.createElement("p"); p.textContent = M[i++]; $("#lg").appendChild(p); if (i >= M.length) { $("#nx").style.display = "none"; done.msg = 1; rain(["💛", "✨"], 20) } }
-          add(); $("#nx").onclick = add;
+      $("#nextMsg").addEventListener("click", function () { if (mi < msgs.length) addMsg() });
+
+      /* report card */
+      var subs = ["Making Science exciting", "Encouraging my questions", "Making experiments fun", "Helping me explore", "Inspiring curiosity"];
+      var rn = {};
+      subs.forEach(function (s, i) {
+        var r = document.createElement("button"); r.className = "row";
+        r.innerHTML = "<span></span><span class='stamp'>A+</span>"; r.firstChild.textContent = s;
+        r.addEventListener("click", function () {
+          if (rn[i]) return; rn[i] = 1; r.classList.add("on");
+          var n = Object.keys(rn).length; $("#rcCount").textContent = n + " of " + subs.length + " graded";
+          if (n === subs.length) { done.report = true; confetti(30); $("#rcCount").textContent = "A+ in everything! ⭐ Go back." }
         });
-      }
-      /* Wish Star */
-      function wish() {
-        var W = ["You are the best teacher in the universe!", "You are super kind and super smart.", "Your smile makes our class happy.", "You are my hero. 🦸", "Thank you for believing in me.", "You make school my favorite place."];
-        var n = 0, order = W.slice().sort(function () { return Math.random() - .5 });
-        open('<h2>Wish Star</h2><p style="margin:0">Make a wish and catch a shooting star!</p><div class="say" id="ws">🌠</div><button class="big" id="wb">Make a wish ✨</button><div class="cap" id="wc">Catch 3 stars</div>', function () {
-          $("#wb").onclick = function () {
-            rain(["🌠", "⭐"], 8); $("#ws").textContent = order[n % order.length]; n++;
-            $("#wc").textContent = n < 3 ? "Stars caught: " + n + " of 3" : "You caught them all! 🎉";
-            if (n >= 3) { done.wish = 1 }
-          };
-        });
-      }
-      $("#launch").onclick = function () { $("#end").classList.add("on"); rain(["⭐", "🎈", "💛", "✨", "🌟"], 70) };
-      $("#back").onclick = function () { $("#end").classList.remove("on") };
-      refresh();
+        $("#rc").appendChild(r);
+      });
     })();
   </script>
 </body>
